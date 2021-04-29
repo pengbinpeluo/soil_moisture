@@ -113,6 +113,7 @@ def get_soil_moisture_pm(file_name, bounds):
     min_lat_ind, max_lat_ind, min_long_ind, max_long_ind, min_lat, max_lat, min_long, max_long = get_indices(lat_data,long_data,lat_min,lat_max,long_min,long_max)
 
     return soil_moisture_data[min_lat_ind:max_lat_ind, min_long_ind:max_long_ind],qc_data[min_lat_ind:max_lat_ind, min_long_ind:max_long_ind], min_lat, max_lat, min_long, max_long
+
 def get_soil_moisture(smap_file, date, folder):
     soil_moisture_am_illinois,qc_am_illinois,min_lat,max_lat,min_long,max_long = get_soil_moisture_am(smap_file,illinois_bounds)
     tifffile.imsave(folder + "/soil_moisture_am_illinois_" + str(date) + "temp.tif",soil_moisture_am_illinois)
